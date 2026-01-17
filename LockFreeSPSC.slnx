@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="LockFreeSPSC.vcxproj" Id="08d6f9fc-cdfc-4b50-b327-cd1941a19fed" />
+  <Project Path="LockFreeSPSC_Tests/LockFreeSPSC_Tests.vcxproj" Id="aaa40581-8c88-4a96-ad7a-3dacc4373c6e" />
+</Solution>
