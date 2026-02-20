@@ -21,14 +21,12 @@ class LockFreeSPSC // NOLINT(clang-diagnostic-padded)
     alignas(cache_line) T buffer_[buffer_size];
 
     // Consumer owned
-    // 'alignas' ensures this starts on a new cache line
     alignas(cache_line) std::atomic<size_t> head_{ 0 };
     // We keep a shadow copy of tail here to avoid loading the atomic one
     // constantly
     size_t cached_tail_{ 0 };
 
     // Producer owned
-    // This padding ensures 'tail_' is far away from 'head_'
     alignas(cache_line) std::atomic<size_t> tail_{ 0 };
     // Shadow copy of head
     size_t cached_head_{ 0 };
@@ -44,7 +42,6 @@ class LockFreeSPSC // NOLINT(clang-diagnostic-padded)
 
     // Basic checks
     bool empty() const;
-
     bool full() const;
 };
 
